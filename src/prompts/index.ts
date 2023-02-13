@@ -1,18 +1,14 @@
 export async function askForInput() {
   const inquirer = await import("inquirer");
-  const value = inquirer.default
+  return inquirer.default
     .prompt([
       {
         type: "input",
-        name: "name",
-        message: "What is your name?",
+        name: "prompt",
+        message: "How can I help you?",
       },
     ])
-    .then((answers: any) => {
-      console.log({ answers });
-      return answers;
+    .then((answer: any) => {
+      return answer;
     });
-  return value;
 }
-
-askForInput();
