@@ -7,3 +7,10 @@ export async function askChatGpt(prompt: string) {
   const apiClient = new ApiClient(ChatGPTAPI);
   return await apiClient.sendPrompt(prompt);
 }
+
+export async function askChatGptWithStream(prompt: string) {
+    const { ChatGPTAPI } = await import("chatgpt");
+    const apiClient = new ApiClient(ChatGPTAPI);
+    return await apiClient.sendPromptWithStream(prompt);
+
+}

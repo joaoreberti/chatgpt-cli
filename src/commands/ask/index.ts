@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { askForInput } from "../../prompts";
-import { askChatGpt } from "../../chatgpt-api/ask-chatgpt";
+import { askChatGpt, askChatGptWithStream } from "../../chatgpt-api/ask-chatgpt";
 async function main() {
   let exit = false;
   const program = new Command();
@@ -19,9 +19,15 @@ async function main() {
     process.exit(0);
   }
 
+//   while (!exit) {
+//     const prompt = await askForInput();
+//     const res = await askChatGpt(prompt.prompt);
+//     console.log({ res });
+//     continue;
+//   }
   while (!exit) {
     const prompt = await askForInput();
-    const res = await askChatGpt(prompt.prompt);
+    const res = await askChatGptWithStream(prompt.prompt);
     console.log({ res });
     continue;
   }

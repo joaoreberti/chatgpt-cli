@@ -1,3 +1,6 @@
+import { ReadableStream } from "node:stream/web";
+import { stringDifference } from "../utils/string-difference";
+
 export class ApiClient {
   private _chatGPTclient;
   constructor(ChatGPTAPI: any) {
@@ -9,6 +12,22 @@ export class ApiClient {
 
   async sendPrompt(input: string): Promise<string> {
     const response = await this._chatGPTclient.sendMessage(input);
+    return response.text;
+  }
+
+  async sendPromptWithStream(input: string) {
+   
+    const response = await this._chatGPTclient.sendMessage(input, {
+      onProgress: (progress: any) => {
+        console.log(progress.text);
+        const newWhole = progress.text
+        let wholeText = progress.text;
+        if (typeof progress.text === "object") {
+          wholeText = progress.text.join("");
+        }
+        console.log(wholeText);
+      },
+    });
     return response.text;
   }
 }
