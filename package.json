@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "tsc && node dist/index.js"
+  },
+  "dependencies": {
+    "chatgpt": "^4.2.0",
+    "commander": "^10.0.0",
+    "dotenv": "^16.0.3",
+    "inquirer": "^9.1.4"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.13.0"
+  }
+}
