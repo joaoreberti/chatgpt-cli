@@ -5,9 +5,8 @@
     "strict": true,
     "module": "nodenext",
     "skipLibCheck": true,
-    "lib": [
-      "ES2020"
-    ],
+    "lib": ["ES2020"],
     "esModuleInterop": true
-  }
+  },
+  "include": ["src/**/*"]
 }

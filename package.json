@@ -4,16 +4,23 @@
   "scripts": {
     "start": "tsc && node dist/index.js",
     "prompt": "tsc && node dist/prompts/index.js",
-    "ask": "tsc && node dist/commands/ask/index.js"
+    "ask": "tsc && node dist/commands/ask/index.js",
+    "test": "jest"
   },
   "dependencies": {
+    "@jest/types": "^29.4.2",
     "chatgpt": "^4.2.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
-    "inquirer": "^9.1.4"
+    "inquirer": "^9.1.4",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
+    "@swc/jest": "^0.2.24",
     "@types/inquirer": "^9.0.3",
-    "@types/node": "^18.13.0"
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.13.0",
+    "jest": "^29.4.2",
+    "ts-jest": "^29.0.5"
   }
 }

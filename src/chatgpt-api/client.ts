@@ -3,14 +3,14 @@ import { ChatGPTAPI } from "chatgpt";
 export class ChatGptService {
   private static Singleton: ChatGptService;
   private _chatGPTclient: ChatGPTAPI;
-  constructor(ChatGPTAPI: any) {
+  private constructor(ChatGPTAPI: any) {
     console.log("ChatGptService constructor")
     this._chatGPTclient = new ChatGPTAPI({
       apiKey: process.env.OPENAI_API_KEY,
     });
     ChatGptService.Singleton = this;
   }
-  static async instance(): Promise<ChatGptService> {
+  public static async instance(): Promise<ChatGptService> {
     if (ChatGptService.Singleton) {
       console.log("ChatGptService Singleton")
       return ChatGptService.Singleton;
@@ -18,12 +18,12 @@ export class ChatGptService {
     const { ChatGPTAPI } = await import("chatgpt");
     return new ChatGptService(ChatGPTAPI);
   }
-  async sendPrompt(input: string): Promise<string> {
+  public async sendPrompt(input: string): Promise<string> {
     const response = await this._chatGPTclient.sendMessage(input);
     return response.text;
   }
 
-  async sendPromptWithStream(input: string) {
+  public async sendPromptWithStream(input: string) {
     const response = await this._chatGPTclient.sendMessage(input, {
       onProgress: (progress: any) => {
         console.log(progress.text);
