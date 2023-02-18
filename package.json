@@ -1,6 +1,11 @@
 {
   "private": true,
   "type": "commonjs",
+  "author": {
+    "name": "João Reberti",
+    "email": "joaoreberti@gmail.com"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "tsc && node dist/index.js",
     "prompt": "tsc && node dist/prompts/index.js",
