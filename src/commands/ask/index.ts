@@ -27,8 +27,8 @@ async function main() {
 //   }
   while (!exit) {
     const prompt = await askForInput();
-    const res = await askChatGptWithStream(prompt.prompt);
-    console.log({ res });
+    await askChatGptWithStream(prompt.prompt);
+    exit = true
     continue;
   }
 }
