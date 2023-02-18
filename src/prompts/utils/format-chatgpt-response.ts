@@ -5,15 +5,17 @@ import { formatInlineCode } from "./format-inline-code";
 import { getCodeBlock } from "./get-code-block";
 import { getInlineCode } from "./get-inline-code";
 import { moveToTop } from "./move-cursor-to-top";
+import { centerText } from "./center-text";
 
+const width = 80;
 export function formatChatGptResponse(response: string, prompt: string): void {
   clear();
   moveToTop();
   const you = "You: " + prompt + "\n";
   const formattedResponse = formatResponse(response);
   const chatGpt = "ChatGPT: " + formattedResponse;
-
-  console.log(you + chatGpt);
+  const output = centerText(you + chatGpt, width);
+  console.log(output);
 }
 
 function formatResponse(response: string): string {
