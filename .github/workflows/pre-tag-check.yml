@@ -5,17 +5,6 @@ on:
       - '*'
 
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run tests
-        run: |
-          # Run your CI tests here
-          # If the tests fail, exit with a non-zero status
-      
-
 permissions:
   checks: read
   contents: read
