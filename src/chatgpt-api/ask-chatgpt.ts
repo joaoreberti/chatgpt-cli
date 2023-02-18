@@ -6,7 +6,7 @@ export async function askChatGpt(prompt: string) {
   return await chatGptService.sendPrompt(prompt);
 }
 
-export async function askChatGptWithStream(prompt: string) {
+export async function askChatGptWithStream(prompt: string, parentMessageId?: string) {
   const chatGptService = await ChatGptService.instance();
-  return await chatGptService.sendPromptWithStream(prompt);
+  return await chatGptService.sendPromptWithStream(prompt, parentMessageId);
 }

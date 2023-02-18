@@ -22,19 +22,19 @@ export class ChatGptService {
     return response.text;
   }
 
-  public async sendPromptWithStream(input: string) {
+  public async sendPromptWithStream(input: string, parentMessageId?: string) {
     const response = await this._chatGPTclient.sendMessage(input, {
       onProgress: (progress: any) => {
         console.log(progress.text);
-        const newWhole = progress.text;
         let wholeText = progress.text;
         if (typeof progress.text === "object") {
           wholeText = progress.text.join("");
         }
         formatChatGptResponse(wholeText, input);
-        // console.log(wholeText);
       },
+      parentMessageId
     });
-    return response.text;
+
+    return response;
   }
 }

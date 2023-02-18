@@ -1,8 +1,8 @@
 import  clear from 'clear';
-import { askForInput } from "./ask-for-input";
+import { askForPrompt } from "./ask-for-prompt";
 
 async function prompt() {
-  const answer = await askForInput();
+  const answer = await askForPrompt('prompt example', true);
   clear()
   console.log(answer);
 }
