@@ -1,14 +1,10 @@
-export async function askForInput() {
-  const inquirer = await import("inquirer");
-  return inquirer.default
-    .prompt([
-      {
-        type: "input",
-        name: "prompt",
-        message: "How can I help you?",
-      },
-    ])
-    .then((answer: any) => {
-      return answer;
-    });
+import  clear from 'clear';
+import { askForPrompt } from "./ask-for-prompt";
+
+async function prompt() {
+  const answer = await askForPrompt('prompt example', true);
+  clear()
+  console.log(answer);
 }
+
+prompt();

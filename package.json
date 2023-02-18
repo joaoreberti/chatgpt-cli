@@ -5,11 +5,15 @@
     "start": "tsc && node dist/index.js",
     "prompt": "tsc && node dist/prompts/index.js",
     "ask": "tsc && node dist/commands/ask/index.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@jest/types": "^29.4.2",
+    "@types/clear": "^0.1.2",
+    "chalk": "^4.1.0",
     "chatgpt": "^4.2.0",
+    "clear": "^0.1.0",
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
     "inquirer": "^9.1.4",
