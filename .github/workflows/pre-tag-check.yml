@@ -7,7 +7,7 @@ on:
 
 permissions:
   checks: read
-  contents: read
+  contents: write
 
 jobs:
   install-deps:
@@ -59,9 +59,11 @@ jobs:
           CI: "true"
       
       - name: Create tag
-        if: ${{ success() }}
+        if: success()
         env:
-          TAG_NAME: ${{ github.ref }}
+          TAG_NAME: v${{ github.run_number }}
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git tag -a $TAG_NAME -m "Release $TAG_NAME"
-          git push origin $TAG_NAME
+          git push --tags --force origin HEAD:main
