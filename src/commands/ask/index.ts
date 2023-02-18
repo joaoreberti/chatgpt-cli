@@ -1,6 +1,6 @@
 import { Command } from "commander";
-import { askForInput } from "../../prompts";
 import { askChatGpt, askChatGptWithStream } from "../../chatgpt-api/ask-chatgpt";
+import { askForInput } from "../../prompts/ask-for-input";
 async function main() {
   let exit = false;
   const program = new Command();
